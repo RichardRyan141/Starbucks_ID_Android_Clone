@@ -14,4 +14,10 @@ object SessionManager {
     fun logout() {
         loggedInUserId = null
     }
+    fun updateLoggedInUser(updatedUser: User) {
+        val index = loggedInUserId!! - 1
+        if (index in usersList.indices) {
+            usersList[index] = updatedUser
+        }
+    }
 }

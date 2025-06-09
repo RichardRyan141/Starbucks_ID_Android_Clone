@@ -12,7 +12,7 @@ data class User(
     val balance: Int = 0
 )
 
-val usersList = listOf(
+val usersList = mutableListOf(
     User(
         email = "user1@gmail.com",
         password = "Pass1234.",

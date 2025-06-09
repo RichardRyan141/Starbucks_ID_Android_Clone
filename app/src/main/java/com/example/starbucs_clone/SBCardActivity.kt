@@ -49,8 +49,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.starbucs_clone.ui.theme.Starbucs_CloneTheme
 import com.example.starbucs_clone.values.color_starbucksGreen
+import java.text.NumberFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 class SBCardActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
@@ -134,7 +136,7 @@ fun SBCardScreen(modifier: Modifier) {
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = "RP. ${user.balance}",
+                        text = "RP. ${NumberFormat.getNumberInstance(Locale.US).format(user.balance)}",
                         fontSize = 24.sp
                     )
                     Spacer(modifier = Modifier.width(24.dp))
