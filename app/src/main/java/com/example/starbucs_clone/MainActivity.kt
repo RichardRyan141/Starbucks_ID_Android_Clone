@@ -103,8 +103,7 @@ fun HomePreview() {
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
-    SessionManager.loggedInUserId = 1
-    val user = SessionManager.getLoggedInUser()
+    val user = UserSessionManager.getLoggedInUser()
     var selectedItem by remember { mutableStateOf(0) }
 
     Scaffold(
@@ -195,7 +194,7 @@ fun TopHomeBar(user: User?) {
                     Row (
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier.clickable {
-                            SessionManager.logout()
+                            UserSessionManager.logout()
                             (context as? Activity)?.recreate()
                         }
                     ) {

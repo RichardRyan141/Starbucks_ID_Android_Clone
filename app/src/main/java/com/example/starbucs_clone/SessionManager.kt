@@ -3,14 +3,48 @@ package com.example.starbucs_clone
 import com.example.starbucs_clone.data.User
 import com.example.starbucs_clone.data.usersList
 
-object SessionManager {
-    var loggedInUserId: Int? = null
+object UserSessionManager {
+    var loggedInUserId: Int? = 1
 
     fun getLoggedInUser(): User? {
         return loggedInUserId?.let { id ->
             if (id in usersList.indices) usersList[id] else null
         }
     }
+    fun login(email: String, password: String): Int {
+        val index = usersList.indexOfFirst { it.email == email && it.password == password }
+        loggedInUserId = index
+        return index
+    }
+    fun isUniqueEmail(email: String): Boolean {
+        val exists = usersList.any { it.email == email }
+        if (exists) {
+            return false
+        }
+        return true
+    }
+    fun register(
+        email: String,
+        password: String,
+        namaDepan: String,
+        namaBelakang: String,
+        noTelp: String,
+        dob: String
+    ): Int {
+        val newUser = User(
+            email = email,
+            password = password,
+            nama_depan = namaDepan,
+            nama_belakang = namaBelakang,
+            noTelp = noTelp,
+            DoB = dob
+        )
+
+        usersList.add(newUser)
+        loggedInUserId = usersList.lastIndex
+        return loggedInUserId!!
+    }
+
     fun logout() {
         loggedInUserId = null
     }

@@ -86,9 +86,8 @@ fun LoginScreen(modifier: Modifier) {
     }
 
     fun loginUser() {
-        val userIndex = usersList.indexOfFirst { it.email == email && it.password == password }
+        val userIndex = UserSessionManager.login(email, password)
         if (userIndex != -1) {
-            SessionManager.loggedInUserId = userIndex
             val user = usersList[userIndex]
 
             Toast.makeText(context, "Login berhasil. Selamat datang ${user.nama_depan}!", Toast.LENGTH_LONG).show()

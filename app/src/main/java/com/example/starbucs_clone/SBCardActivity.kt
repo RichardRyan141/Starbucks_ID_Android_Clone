@@ -84,8 +84,7 @@ fun SBCardPreview() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SBCardScreen(modifier: Modifier) {
-    SessionManager.loggedInUserId = 1
-    val user = SessionManager.getLoggedInUser()!!
+    val user = UserSessionManager.getLoggedInUser()!!
 
     var currentTime by remember { mutableStateOf(getCurrentTime()) }
     var selectedItem by remember { mutableStateOf(1) }

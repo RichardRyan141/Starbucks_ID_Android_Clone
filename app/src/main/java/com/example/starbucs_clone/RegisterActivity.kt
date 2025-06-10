@@ -181,13 +181,18 @@ fun Fields(
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
+    fun isUniqueEmail(email: String): Boolean {
+        return UserSessionManager.isUniqueEmail(email)
+    }
+
     fun isFormValid(): Boolean {
         val emailValid = isValidEmail(email)
         val passwordValid = password.length >= 8 && password.any { it.isDigit() }
         val fieldsFilled = nama_depan.isNotBlank() && email.isNotBlank() && password.isNotBlank() && confirmPassword.isNotBlank()
         val passwordsMatch = password == confirmPassword
         val phoneValid = noTelp.all { it.isDigit() } && noTelp.length >= 10
-        return fieldsFilled && emailValid && phoneValid && passwordsMatch && passwordValid && tosChecked && privacyChecked
+        val uniqueEmail = UserSessionManager.isUniqueEmail(email)
+        return fieldsFilled && emailValid && uniqueEmail && phoneValid && passwordsMatch && passwordValid && tosChecked && privacyChecked
     }
 
     Column(
@@ -230,6 +235,21 @@ fun Fields(
                     )
                     Text(
                         text = "Email tidak valid",
+                        color = Color.Gray,
+                        fontSize = 20.sp
+                    )
+                }
+            }
+            if(!isUniqueEmail(email)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = Icons.Default.Close,
+                        contentDescription = null,
+                        tint = Color.Red,
+                        modifier = Modifier.padding(top = 4.dp, end = 32.dp).size(32.dp)
+                    )
+                    Text(
+                        text = "Email sudah digunakan",
                         color = Color.Gray,
                         fontSize = 20.sp
                     )
@@ -510,7 +530,7 @@ fun Fields(
 
         Button(
             onClick = {
-                //                registerUser()
+                UserSessionManager.register(email,password,nama_depan,nama_belakang,noTelp,DoB)
             },
             modifier = Modifier.fillMaxWidth(),
             enabled = isFormValid()

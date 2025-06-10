@@ -77,8 +77,7 @@ fun TopUpPreview() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopUpScreen(modifier: Modifier) {
-    SessionManager.loggedInUserId = 1
-    var user by remember { mutableStateOf(SessionManager.getLoggedInUser()!!) }
+    var user by remember { mutableStateOf(UserSessionManager.getLoggedInUser()!!) }
 
     var selectedItem by remember { mutableStateOf(1) }
     var topUpBalance by remember { mutableStateOf(0) }
@@ -242,7 +241,7 @@ fun TopUpScreen(modifier: Modifier) {
                     user = user.copy(balance = user.balance + topUpBalance)
                     topUpBalance = 0
 
-                    SessionManager.updateLoggedInUser(user)
+                    UserSessionManager.updateLoggedInUser(user)
                 },
                 shape = RoundedCornerShape(24.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = color_starbucksGreen),
