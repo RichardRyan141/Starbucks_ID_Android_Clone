@@ -1,6 +1,10 @@
 package com.example.starbucs_clone
 
+import com.example.starbucs_clone.data.Menu
+import com.example.starbucs_clone.data.PurchaseDetail
 import com.example.starbucs_clone.data.User
+import com.example.starbucs_clone.data.menusList
+import com.example.starbucs_clone.data.purchaseDetailsList
 import com.example.starbucs_clone.data.usersList
 
 object UserSessionManager {
@@ -53,5 +57,20 @@ object UserSessionManager {
         if (index in usersList.indices) {
             usersList[index] = updatedUser
         }
+    }
+}
+
+object MenuSessionManager {
+    fun getMenuDetail(menuId: Int): Menu {
+        return menusList[menuId]
+    }
+}
+
+object PurchaseSessionManager {
+    fun getItemCount(): Int {
+        return purchaseDetailsList.size
+    }
+    fun addItem(item: PurchaseDetail) {
+        purchaseDetailsList.add(item)
     }
 }

@@ -8,12 +8,18 @@ data class Menu(
     val imageID: Int = 0,
     val nominal: Int = 0,
     val kategori: String = "",
+    val subKategori: String = ""
 )
 
 val menusList = mutableListOf(
-    Menu("Vanilla Sweet Creme Cold Brew", "", R.drawable.promo1, 49000, "Beverage"),
-    Menu("Cold Brew Coffee", "Available iced only", R.drawable.promo1, 45000, "Beverage"),
-    Menu("Smoked Beef Mushroom & Cheese Panini", "All time favorite Smoked Beef & Cheese pressed sandwich", R.drawable.promo2, 45000, "Food"),
-    Menu("Pandan Unti Soft Bun", "", R.drawable.promo2, 25000, "Food"),
-    Menu("New York Cheese Cake", "", R.drawable.promo2, 41000, "Food")
+    Menu("Vanilla Sweet Creme Cold Brew", "", R.drawable.product_placeholder, 49000, "Beverage", "Brewed Coffees"),
+    Menu("Cold Brew Coffee", "Available iced only", R.drawable.product_placeholder, 45000, "Beverage", "Brewed Coffees"),
+    Menu("Smoked Beef Mushroom & Cheese Panini", "All time favorite Smoked Beef & Cheese pressed sandwich", R.drawable.product_placeholder, 45000, "Food", "Sandwich"),
+    Menu("Pandan Unti Soft Bun", "", R.drawable.product_placeholder, 25000, "Food", "Baked"),
+    Menu("New York Cheese Cake", "", R.drawable.product_placeholder, 41000, "Food", "Cakes"),
+    Menu("Caramel Macchiato", "", R.drawable.product_placeholder, 61000, "Beverage", "Espresso Beverages"),
+    Menu("Caffe Latte", "", R.drawable.product_placeholder, 48000, "Beverage", "Espresso Beverages"),
+    Menu("Americano", "", R.drawable.product_placeholder, 38000, "Beverage", "Espresso Beverages"),
+    Menu("Coffee Double Shots Iced Shaken", "", R.drawable.product_placeholder, 52000, "Beverage", "Espresso Beverages"),
+    Menu("Capucino", "", R.drawable.product_placeholder, 48000, "Beverage", "Espresso Beverages")
 )

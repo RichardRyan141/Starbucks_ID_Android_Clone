@@ -1,8 +1,8 @@
 package com.example.starbucs_clone.data
 
 data class PurchaseDetail(
-    val trans_id: Int = 0,
-    val menu_id: Int = 0,
+    val trans_id: Int = -1,
+    val menu_id: Int = -1,
     val isHot: Boolean = false,
     val size: String = "Grande",
     val extra_espresso: Int = 0,
@@ -26,4 +26,7 @@ val historicalPurchaseDetailsList = mutableListOf(
     PurchaseDetail(2,2,true)
 )
 
-val purchaseDetailsList = mutableListOf<PurchaseDetail>()
+val purchaseDetailsList = mutableListOf<PurchaseDetail>(
+    PurchaseDetail(-1,0,false,"Venti",extra_espresso = 1, extra_whipCream = true),
+    PurchaseDetail(-1,1,false,"Tall", extra_syrup1_id = 0, extra_coldFoam = true),
+)

@@ -112,6 +112,7 @@ fun LocationOrderScreen(modifier: Modifier) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
+                .padding(horizontal = 12.dp, vertical = 16.dp)
         ) {
             LazyColumn(
                 modifier = Modifier
