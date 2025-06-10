@@ -82,6 +82,9 @@ object PurchaseSessionManager {
     fun addItem(item: PurchaseDetail) {
         purchaseDetailsList.add(item)
     }
+    fun removeItem(item: PurchaseDetail) {
+        purchaseDetailsList.remove(item)
+    }
     fun getItems(): List<PurchaseDetail> {
         return purchaseDetailsList
     }

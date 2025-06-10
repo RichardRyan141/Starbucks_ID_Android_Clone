@@ -1,5 +1,6 @@
 package com.example.starbucs_clone
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -46,6 +47,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -349,6 +351,7 @@ fun OrderReviewScreen(modifier: Modifier) {
 
 @Composable
 fun PurchaseCard(purchase: PurchaseDetail, menu: Menu) {
+    var context = LocalContext.current
     val totalPrice = calculateSubTotalPrice(purchase, menu.nominal)
 
     Card(
@@ -508,6 +511,28 @@ fun PurchaseCard(purchase: PurchaseDetail, menu: Menu) {
                     )
                 }
             }
+        }
+        Button(
+            onClick = {
+                PurchaseSessionManager.removeItem(purchase)
+                (context as? Activity)?.recreate()
+            },
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Red,
+            ),
+            border = BorderStroke(2.dp, Color.Black),
+            elevation = ButtonDefaults.buttonElevation(
+                defaultElevation = 4.dp,
+                pressedElevation = 8.dp
+            ),
+            shape = RoundedCornerShape(35.dp),
+            modifier = Modifier.fillMaxWidth().align(Alignment.CenterHorizontally)
+        ) {
+            Text(
+                text = "Remove Item",
+                fontSize = 16.sp,
+                color = Color.White
+            )
         }
     }
 }
