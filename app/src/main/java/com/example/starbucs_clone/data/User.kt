@@ -29,6 +29,7 @@ val usersList = mutableListOf(
         noTelp = "08123456789",
         DoB = "25/12/1995",
         stars = 300,
-        stars1Year = 350
+        stars1Year = 350,
+        balance = 1000000
     )
 )

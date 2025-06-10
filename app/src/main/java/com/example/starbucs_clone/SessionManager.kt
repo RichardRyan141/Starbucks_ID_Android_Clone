@@ -5,6 +5,7 @@ import com.example.starbucs_clone.data.PurchaseDetail
 import com.example.starbucs_clone.data.User
 import com.example.starbucs_clone.data.menusList
 import com.example.starbucs_clone.data.purchaseDetailsList
+import com.example.starbucs_clone.data.syrupList
 import com.example.starbucs_clone.data.usersList
 
 object UserSessionManager {
@@ -67,10 +68,21 @@ object MenuSessionManager {
 }
 
 object PurchaseSessionManager {
+    val selectedLocationId: Int = 2
+    fun getSyrupDetail(syrupId: Int): String {
+        if (syrupId >= 0) return syrupList[syrupId]
+        return ""
+    }
     fun getItemCount(): Int {
         return purchaseDetailsList.size
     }
     fun addItem(item: PurchaseDetail) {
         purchaseDetailsList.add(item)
+    }
+    fun getItems(): List<PurchaseDetail> {
+        return purchaseDetailsList
+    }
+    fun checkOut(totalPrice: Int, method: String) {
+
     }
 }
