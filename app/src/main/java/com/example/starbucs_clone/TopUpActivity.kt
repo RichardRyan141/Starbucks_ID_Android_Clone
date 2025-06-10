@@ -147,7 +147,7 @@ fun TopUpScreen(modifier: Modifier) {
                 modifier = Modifier.padding(8.dp).fillMaxWidth()
             )
             Text(
-                text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(user.balance)}",
+                text = "Rp. ${formatCurrency(user.balance)}",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.ExtraBold,
                 textAlign = TextAlign.Center,
@@ -229,7 +229,7 @@ fun TopUpScreen(modifier: Modifier) {
             }
             if(topUpBalance != 0) {
                 Text(
-                    text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(topUpBalance)}",
+                    text = "Rp. ${formatCurrency(topUpBalance)}",
                     fontSize = 32.sp,
                     fontWeight = FontWeight.ExtraBold,
                     textAlign = TextAlign.Center,

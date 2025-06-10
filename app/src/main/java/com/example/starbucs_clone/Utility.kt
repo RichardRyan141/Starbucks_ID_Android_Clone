@@ -13,6 +13,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.starbucs_clone.data.navItemList
 import com.example.starbucs_clone.values.color_starbucksGreen
+import java.text.NumberFormat
+import java.util.Locale
 
 @Composable
 fun Navbar(selectedItem: Int, onItemChange: (Int) -> Unit) {
@@ -46,4 +48,8 @@ fun Navbar(selectedItem: Int, onItemChange: (Int) -> Unit) {
             )
         }
     }
+}
+
+fun formatCurrency(nominal: Int): String {
+    return NumberFormat.getNumberInstance(Locale.US).format(nominal)
 }

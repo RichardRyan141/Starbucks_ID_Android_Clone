@@ -68,7 +68,10 @@ object MenuSessionManager {
 }
 
 object PurchaseSessionManager {
-    val selectedLocationId: Int = 2
+    var selectedLocationId: Int = 2
+    fun setLocationId(locId: Int) {
+        selectedLocationId = locId
+    }
     fun getSyrupDetail(syrupId: Int): String {
         if (syrupId >= 0) return syrupList[syrupId]
         return ""

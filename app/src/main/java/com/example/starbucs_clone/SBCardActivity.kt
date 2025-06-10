@@ -135,7 +135,7 @@ fun SBCardScreen(modifier: Modifier) {
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(user.balance)}",
+                        text = "Rp. ${formatCurrency(user.balance)}",
                         fontSize = 24.sp
                     )
                     Spacer(modifier = Modifier.width(24.dp))

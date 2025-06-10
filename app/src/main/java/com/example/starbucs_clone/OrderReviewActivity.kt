@@ -217,7 +217,7 @@ fun OrderReviewScreen(modifier: Modifier) {
                             )
 
                             Text(
-                                text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(totalPrice * 10 / 11)}",
+                                text = "Rp. ${formatCurrency(totalPrice * 10 / 11)}",
                                 fontWeight = FontWeight.Bold
                             )
                         }
@@ -240,7 +240,7 @@ fun OrderReviewScreen(modifier: Modifier) {
                             )
 
                             Text(
-                                text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(totalPrice / 11)}",
+                                text = "Rp. ${formatCurrency(totalPrice / 11)}",
                                 fontWeight = FontWeight.Bold
                             )
                         }
@@ -265,7 +265,7 @@ fun OrderReviewScreen(modifier: Modifier) {
                             )
 
                             Text(
-                                text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(totalPrice)}",
+                                text = "Rp. ${formatCurrency(totalPrice)}",
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 24.sp,
                                 color = color_starbucksGreen
@@ -287,7 +287,7 @@ fun OrderReviewScreen(modifier: Modifier) {
                             fontSize = 24.sp
                         )
                         Text(
-                            text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(user.balance)}",
+                            text = "Rp. ${formatCurrency(user.balance)}",
                             fontWeight = FontWeight.ExtraBold,
                             fontSize = 24.sp
                         )
@@ -381,7 +381,7 @@ fun PurchaseCard(purchase: PurchaseDetail, menu: Menu) {
                         modifier = Modifier.weight(1f)
                     )
                     Text(
-                        text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(totalPrice)}",
+                        text = "Rp. ${formatCurrency(totalPrice)}",
                         fontWeight = FontWeight.ExtraBold
                     )
                 }
@@ -392,7 +392,7 @@ fun PurchaseCard(purchase: PurchaseDetail, menu: Menu) {
                         modifier = Modifier.weight(1f)
                     )
                     Text(
-                        text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(menu.nominal * purchase.qty)}",
+                        text = "Rp. ${formatCurrency(menu.nominal * purchase.qty)}",
                         fontWeight = FontWeight.ExtraBold
                     )
                 }
@@ -413,7 +413,7 @@ fun PurchaseCard(purchase: PurchaseDetail, menu: Menu) {
                             modifier = Modifier.weight(1f)
                         )
                         Text(
-                            text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(purchase.qty * sizePrice)}",
+                            text = "Rp. ${formatCurrency(purchase.qty * sizePrice)}",
                         )
                     }
                     if(purchase.extra_espresso > 0) {
@@ -425,7 +425,7 @@ fun PurchaseCard(purchase: PurchaseDetail, menu: Menu) {
                             )
                             Text(
                                 text = "Rp. ${
-                                    NumberFormat.getNumberInstance(Locale.US).format(purchase.qty * espressoPrice)
+                                    formatCurrency(purchase.qty * espressoPrice)
                                 }",
                             )
                         }
@@ -437,7 +437,7 @@ fun PurchaseCard(purchase: PurchaseDetail, menu: Menu) {
                                 modifier = Modifier.weight(1f)
                             )
                             Text(
-                                text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(purchase.qty * 6000)}",
+                                text = "Rp. ${formatCurrency(purchase.qty * 6000)}",
                             )
                         }
                     }
@@ -448,7 +448,7 @@ fun PurchaseCard(purchase: PurchaseDetail, menu: Menu) {
                                 modifier = Modifier.weight(1f)
                             )
                             Text(
-                                text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(purchase.qty * 6000)}",
+                                text = "Rp. ${formatCurrency(purchase.qty * 6000)}",
                             )
                         }
                     }
@@ -459,7 +459,7 @@ fun PurchaseCard(purchase: PurchaseDetail, menu: Menu) {
                                 modifier = Modifier.weight(1f)
                             )
                             Text(
-                                text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(purchase.qty * 10000)}",
+                                text = "Rp. ${formatCurrency(purchase.qty * 10000)}",
                             )
                         }
                     }
@@ -470,7 +470,7 @@ fun PurchaseCard(purchase: PurchaseDetail, menu: Menu) {
                                 modifier = Modifier.weight(1f)
                             )
                             Text(
-                                text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(purchase.qty * 19000)}",
+                                text = "Rp. ${formatCurrency(purchase.qty * 19000)}",
                             )
                         }
                     }
@@ -481,7 +481,7 @@ fun PurchaseCard(purchase: PurchaseDetail, menu: Menu) {
                                 modifier = Modifier.weight(1f)
                             )
                             Text(
-                                text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(purchase.qty * 6000)}",
+                                text = "Rp. ${formatCurrency(purchase.qty * 6000)}",
                             )
                         }
                     }
@@ -492,7 +492,7 @@ fun PurchaseCard(purchase: PurchaseDetail, menu: Menu) {
                                 modifier = Modifier.weight(1f)
                             )
                             Text(
-                                text = "Rp. ${NumberFormat.getNumberInstance(Locale.US).format(purchase.qty * 10000)}",
+                                text = "Rp. ${formatCurrency(purchase.qty * 10000)}",
                             )
                         }
                     }

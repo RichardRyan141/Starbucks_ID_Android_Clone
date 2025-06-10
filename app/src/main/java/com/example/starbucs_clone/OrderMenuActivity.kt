@@ -59,8 +59,6 @@ import com.example.starbucs_clone.data.PurchaseDetail
 import com.example.starbucs_clone.data.syrupList
 import com.example.starbucs_clone.ui.theme.Starbucs_CloneTheme
 import com.example.starbucs_clone.values.color_starbucksGreen
-import java.text.NumberFormat
-import java.util.Locale
 
 class OrderMenuActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -212,10 +210,7 @@ fun OrderMenuScreen(modifier: Modifier, menuId: Int = 0) {
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text(
-                                text = "Rp. ${
-                                    NumberFormat.getNumberInstance(Locale.US)
-                                        .format(menuDetail.nominal)
-                                }",
+                                text = "Rp. ${formatCurrency(menuDetail.nominal)}",
                                 color = color_starbucksGreen,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 30.sp,

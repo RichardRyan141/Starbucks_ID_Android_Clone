@@ -156,6 +156,7 @@ fun LocationOrderScreen(modifier: Modifier) {
             Button(
                 onClick = {
                     if (selectedLocationIndex != -1) {
+                        PurchaseSessionManager.setLocationId(selectedLocationIndex)
                         Toast.makeText(context, "Lokasi: ${locationsList[selectedLocationIndex].nama}!", Toast.LENGTH_LONG).show()
                     }
                     else {
